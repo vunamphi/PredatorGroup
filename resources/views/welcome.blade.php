@@ -22,7 +22,9 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-       <h1>Hello Predator</h1>
+       <h1>Ussers list</h1>
        <a href="/users">users</a>
+      <h1> {{ now() }}</h1>
+  <a href="/create">Tạo user</a>
     </body>
 </html>
