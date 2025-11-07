@@ -44,3 +44,4 @@ route::put('/{id}', 'update')->name('update');
 Route::get('/{id}/delete', 'delete')->name('delete');
 });
 Route::get('dangnhap', [AuthDangNhap::class, 'dangnhap']);
+Route::post('dangnhap', [AuthDangNhap::class, 'postdangnhap'])->name('postdangnhap');
