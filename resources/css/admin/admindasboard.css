@@ -25,9 +25,18 @@
      background: linear-gradient(180deg, #1c1c1c 0%, #0a0a0a 100%);
      border-right: 1px solid #2a2a2a;
      padding: 2rem 0;
+     /* === PHẦN QUAN TRỌNG ĐỂ ĐẦY KHUNG === */
      position: fixed;
+     /* Cố định nó trên màn hình */
      height: 100vh;
+     /* Chiều cao 100% màn hình */
      overflow-y: auto;
+     /* Tự động thêm thanh cuộn NẾU menu quá dài */
+     top: 0;
+     /* Đảm bảo nó dính sát lề trên */
+     left: 0;
+     /* Đảm bảo nó dính sát lề trái */
+     /* === KẾT THÚC PHẦN QUAN TRỌNG === */
      z-index: 100;
      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
  }
@@ -113,12 +122,16 @@
      width: 20px;
      text-align: center;
  }
+ /* Sửa tệp: resources/css/admin/admindasboard.css */
  
  .main-content {
      margin-left: 280px;
      flex: 1;
      padding: 2rem;
      width: calc(100% - 280px);
+     min-height: 100vh;
+     /* <-- THÊM DÒNG NÀY */
+     margin-top: -50px;
  }
  
  .top-bar {
@@ -513,12 +526,9 @@
      border-color: #c0c0c0;
      color: #ffffff;
  }
- /* --- CSS CHUNG CHO DROPDOWN (HOVER) --- */
- /* Đổi tên từ .profile-dropdown-container thành .dropdown-container */
  
  .dropdown-container {
      position: relative;
-     /* SỬA LỖI MẤT HOVER */
      padding-bottom: 0.75rem;
  }
  
@@ -531,12 +541,10 @@
  
  .dropdown-menu {
      display: none;
-     /* Ẩn mặc định */
      position: absolute;
      top: 100%;
      right: 0;
      margin-top: 0.75rem;
-     /* Giữ khoảng cách trực quan */
      width: 220px;
      background: linear-gradient(135deg, #1f1f1f 0%, #121212 100%);
      border: 1px solid #2a2a2a;
@@ -544,20 +552,16 @@
      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
      z-index: 1000;
      overflow: hidden;
-     /* Để bo góc các item bên trong */
      padding: 0.5rem;
  }
- /* CSS cho dropdown rộng hơn (dùng cho thông báo, tin nhắn) */
  
  .dropdown-menu.dropdown-lg {
      width: 320px;
  }
- /* HIỆN DROPDOWN KHI DI CHUỘT VÀO CONTAINER */
  
  .dropdown-container:hover .dropdown-menu {
      display: block;
  }
- /* XOAY MŨI TÊN (chỉ áp dụng cho user-profile) */
  
  .dropdown-container:hover .user-profile .fa-chevron-down {
      transform: rotate(180deg);
@@ -573,9 +577,7 @@
      font-size: 0.9rem;
      transition: all 0.3s ease;
      border-radius: 8px;
-     /* Bo góc cho từng item */
  }
- /* Thêm style cho nội dung bên trong dropdown thông báo/tin nhắn */
  
  .dropdown-item .dropdown-content {
      display: flex;
@@ -587,7 +589,6 @@
      overflow: hidden;
      text-overflow: ellipsis;
      max-width: 240px;
-     /* Giới hạn chiều rộng text */
  }
  
  .dropdown-item .dropdown-content .text-muted {
@@ -637,4 +638,36 @@
  
  .dropdown-item.danger:hover i {
      color: #ff8080;
+ }
+ 
+ .nav-arrow {
+     margin-left: auto;
+     /* Đẩy mũi tên sang phải */
+     transition: transform 0.3s ease;
+     font-size: 0.9em;
+ }
+ 
+ .sub-nav-container {
+     /* Vùng chứa các mục con */
+     background: rgba(0, 0, 0, 0.1);
+     /* Thêm nền mờ để phân biệt */
+ }
+ 
+ .sub-nav-item {
+     padding-left: 3rem !important;
+     /* Thụt lề các mục con */
+     font-size: 0.95rem;
+     /* Kích thước chữ nhỏ hơn một chút */
+     color: #aaaaaa;
+     /* Màu chữ mờ hơn cho mục con */
+ }
+ 
+ .sub-nav-item:hover {
+     color: #e0e0e0;
+     /* Giữ nguyên màu khi hover */
+ }
+ 
+ .sub-nav-item i {
+     font-size: 0.9em;
+     /* Icon nhỏ hơn cho mục con */
  }

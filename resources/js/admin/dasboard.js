@@ -153,3 +153,40 @@
           stat.textContent = finalValue;
       }, 300);
   });
+
+  function toggleSubMenu(navItem) {
+      // Lấy phần tử menu con ngay sau mục vừa nhấp
+      const subMenu = navItem.nextElementSibling;
+      // Lấy mũi tên bên trong mục vừa nhấp
+      const arrow = navItem.querySelector('.nav-arrow');
+
+      // Kiểm tra xem có phải là menu con hợp lệ không
+      if (subMenu && subMenu.classList.contains('sub-nav-container')) {
+          // Nếu đang ẩn thì hiện ra
+          if (subMenu.style.display === "none" || subMenu.style.display === "") {
+              subMenu.style.display = "block";
+              navItem.classList.add('active'); // Thêm class 'active' để làm nổi bật
+              if (arrow) {
+                  arrow.style.transform = "rotate(180deg)"; // Xoay mũi tên
+              }
+          } else {
+              // Nếu đang hiện thì ẩn đi
+              subMenu.style.display = "none";
+              navItem.classList.remove('active'); // Bỏ class 'active'
+              if (arrow) {
+                  arrow.style.transform = "rotate(0deg)"; // Quay lại mũi tên
+              }
+          }
+      }
+  }
+
+
+  // Giữ lại hàm gốc cho banner
+  function toggleBanner() {
+      var bannerContent = document.getElementById('banner-content');
+      if (bannerContent.style.display === 'none') {
+          bannerContent.style.display = 'block';
+      } else {
+          bannerContent.style.display = 'none';
+      }
+  }

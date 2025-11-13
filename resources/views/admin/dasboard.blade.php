@@ -1,5 +1,4 @@
 
-<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-</head>
+    </head>
 
 <body>
     <div class="dashboard-container">
@@ -29,15 +28,30 @@
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-shopping-bag"></i>
-                    <span onclick="toggleBanner()">Banner</span>
+                    <span onclick="toggleBanner()">Giỏ hàng </span>
                     <div id="banner-content" style="display: none;">
                         @include('admin.banner');
                     </div>
                 </div>
-                <div class="nav-item">
-                    <i class="fas fa-clock"></i>
 
+                <div class="nav-item" onclick="toggleSubMenu(this)">
+                    <i class="fas fa-clock"></i>
                     <span>Quản lý</span>
+                    <i class="fas fa-chevron-down nav-arrow"></i>
+                </div>
+                <div class="sub-nav-container" style="display: none;">
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-tags"></i>
+                        <span>Quản lý danh mục</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span>Quản lí sản phẩm</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span>Quản lí thương hiệu</span>
+                    </a>
                 </div>
                 <div class="nav-item">
                     <i class="fas fa-users"></i>
@@ -361,4 +375,43 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleSubMenu(navItem) {
+            // Lấy phần tử menu con ngay sau mục vừa nhấp
+            const subMenu = navItem.nextElementSibling;
+            // Lấy mũi tên bên trong mục vừa nhấp
+            const arrow = navItem.querySelector('.nav-arrow');
+
+            // Kiểm tra xem có phải là menu con hợp lệ không
+            if (subMenu && subMenu.classList.contains('sub-nav-container')) {
+                // Nếu đang ẩn thì hiện ra
+                if (subMenu.style.display === "none" || subMenu.style.display === "") {
+                    subMenu.style.display = "block";
+                    navItem.classList.add('active'); // Thêm class 'active' để làm nổi bật
+                    if (arrow) {
+                        arrow.style.transform = "rotate(180deg)"; // Xoay mũi tên
+                    }
+                } else {
+                    // Nếu đang hiện thì ẩn đi
+                    subMenu.style.display = "none";
+                    navItem.classList.remove('active'); // Bỏ class 'active'
+                    if (arrow) {
+                        arrow.style.transform = "rotate(0deg)"; // Quay lại mũi tên
+                    }
+                }
+            }
+        }
+
+        // Giữ lại hàm gốc cho banner
+        function toggleBanner() {
+            var bannerContent = document.getElementById('banner-content');
+            if (bannerContent.style.display === 'none') {
+                bannerContent.style.display = 'block';
+            } else {
+                bannerContent.style.display = 'none';
+            }
+        }
+    </script>
 </body>
+
