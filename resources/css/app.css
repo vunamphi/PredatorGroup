@@ -10,14 +10,10 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-
-/* === KẾT THÚC THAY THẾ TẠI ĐÂY === */
-
-
-/* Bổ sung CSS cho Bố cục Sticky Footer (Sử dụng Flexbox) */
-
-
-/* ... (tailwind imports) ... */
+html {
+    overflow-y: scroll;
+    /* Luôn hiện thanh cuộn dọc */
+}
 
 body {
     /* Quan trọng 1: Đặt chiều cao tối thiểu bằng chiều cao của viewport */
@@ -45,5 +41,3 @@ footer {
 @import './dangnhap.css';
 @import './header.css';
 @import './footer.css';
-
-/* @import './layout/main.css'; */

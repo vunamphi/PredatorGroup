@@ -1,3 +1,10 @@
+/* Thêm vào đầu file resources/css/layout/lienhe.css */
+
+html {
+    overflow-y: scroll;
+    /* Luôn giữ chỗ cho thanh cuộn */
+}
+
 * {
     margin: 0;
     padding: 0;

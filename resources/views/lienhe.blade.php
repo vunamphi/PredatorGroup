@@ -1,18 +1,21 @@
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Liên hệ — Công ty</title>
-  <meta name="description" content="Trang liên hệ hiện đại, tông màu xám đen, với bản đồ tương tác và biểu mẫu liên hệ." />
-  @vite(['resources/css/layout/lienhe.css', 'resources/js/layout/lienhe.js']);
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ Hỗ Trợ - PredatorWatch</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    @vite(['resources/css/layout/lienhe.css', 'resources/js/layout/lienhe.js'])
 </head>
-
+<body style="margin: 0; padding: 0;">
 @extends('layouts.navbar.header')
-<div class="contact-wrapper">
+    <div class="contact-wrapper">
         <div class="contact-ui-wrap">
             <header class="contact-ui-top">
                 <div class="contact-ui-title-group">
+                   
                     <div class="contact-ui-logo">PW</div>
                     <div class="contact-ui-heading">
                         <h1>Liên hệ</h1>
@@ -102,7 +105,9 @@
                     <div class="contact-ui-foot">
                         <div>© <strong>Predator</strong></div>
                         <div class="contact-ui-socials">
-                            <a href="#">F</a><a href="#">I</a><a href="#">Y</a>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
                         </div>
                     </div>
                 </aside>
@@ -115,5 +120,9 @@
             </div>
             <button class="contact-ui-close-btn" id="closeMap">Đóng</button>
         </div>
+
         <div class="contact-ui-snack" id="snack">Thông báo</div>
     </div>
+    @extends('layouts.navbar.footer')
+</body>
+</html>
