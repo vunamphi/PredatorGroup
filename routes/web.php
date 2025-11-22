@@ -24,7 +24,7 @@ Route::get('/users', [UserConTroller::class, 'index'])->middleware('access.time'
 
 
 
-Route::controller(HomeController::class)->group(function () {
+Route::prefix('')->controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/about', 'about');
 });

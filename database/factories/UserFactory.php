@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => bcrypt('password'), // hoặc Hash::make('password')
+            'password' => Hash::make('password'), // hoặc Hash::make('password')
             'phone' => '0' . fake()->randomElement(['3', '5', '7', '8', '9']) . fake()->numberBetween(10000000, 99999999),
             'role' => fake()->randomElement(['customer', 'customer', 'customer', 'staff']), // 75% customer
             'is_active' => true,

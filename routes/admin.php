@@ -6,8 +6,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/admin', 'admin/dashboad');
-
+Route::redirect('/admin', '/admin/dashboard');
 // routes/web.php hoặc routes/admin.php
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
@@ -17,10 +16,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('/product/{product}', [ProductController::class, 'delete'])->name('products.delete');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::prefix('/order')->name('orders.')->group(function () {
-    Route::get('/{order}', [OrderController::class, 'show'])->name('show');
-    Route::get('/{order}/invoice', [OrderController::class, 'invoice'])->name('invoice');
-});
-    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/{order}', [OrderController::class, 'show'])->name('show');
+        Route::get('/{order}/invoice', [OrderController::class, 'invoice'])->name('invoice');
+    });
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 });
 // ->middleware(['auth', 'admin'])
