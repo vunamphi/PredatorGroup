@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthDangNhap;
 use App\Http\Controllers\bannerController;
 use App\Http\Controllers\ChiTietSanPhamCtr;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LienHeController;
 use App\Http\Controllers\LoginGG;
@@ -59,3 +60,4 @@ Route::get('sanpham', [SanPhamController::class, 'sanpham'])->name('sanpham');
 Route::get('lienhe', [LienHeController::class, 'lienhe'])->name('lienhe');
 Route::get('chitietsanpham', [ChiTietSanPhamCtr::class, 'chitietsanpham'])->name('chitietsanpham');
 
+Route::get('giohang', [GioHangController::class, 'giohang'])->name('giohang');
