@@ -12,7 +12,7 @@ class bannerController extends Controller
     public function index()
     {
         $banners = Banner::all(); // Lấy tất cả banner
-        return view('admin.banner', compact('banners'));
+        return view('admin.quan_ly.banner', compact('banners'));
     }
 
     // Thêm mới (Store)
