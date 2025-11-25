@@ -21,7 +21,11 @@ class CheckAccessTime
         $start = Carbon::createFromTime(8,0);
         $end = Carbon::createFromTime(17, 0);
         if($now->lessThan($start) || $now->greaterThan($end)){
+<<<<<<< HEAD
         return response('Lỗi bạn không được vào vào giờ này', 403);
+=======
+return response('Lỗi bạn không được vào vào giờ này', 403);
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
         }
         return $next($request);
     }

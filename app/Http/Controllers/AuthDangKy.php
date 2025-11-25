@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -27,6 +28,15 @@ class AuthDangKy extends Controller
     {
         $this->AuthService = $AuthService;
     }
+=======
+
+
+use Illuminate\Support\Facades\Mail;
+
+
+class AuthDangKy extends Controller
+{
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
     public function dangky()
     {
         return view('auth.dangnhap');
@@ -77,6 +87,7 @@ class AuthDangKy extends Controller
 
         return redirect()->route('login');
     }
+<<<<<<< HEAD
 
 
     
@@ -97,4 +108,6 @@ class AuthDangKy extends Controller
             return redirect()->route('login')->with('error', 'Đăng nhập bằng Google thất bại!');
         }
     }
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 }

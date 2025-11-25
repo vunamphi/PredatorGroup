@@ -57,7 +57,11 @@
           <button type="button" class="google-btn">
             <i class="fab fa-google google-icon"></i>
 
+<<<<<<< HEAD
            <a href="{{ route('auth.google') }}">Đăng nhập với Google</a> 
+=======
+           <a href="#">Đăng nhập với Google</a> 
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 
 
           </button>

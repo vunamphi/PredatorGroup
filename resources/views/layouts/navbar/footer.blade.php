@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <footer class="pw-footer">
+=======
+
+    <footer class="pw-footer">
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
         <div class="pw-footer-decoration pw-decoration-1"></div>
         <div class="pw-footer-decoration pw-decoration-2"></div>
         

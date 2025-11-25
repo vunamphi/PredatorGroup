@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Thêm vào đầu file resources/css/layout/lienhe.css */
 
 html {
@@ -5,6 +6,8 @@ html {
     /* Luôn giữ chỗ cho thanh cuộn */
 }
 
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 * {
     margin: 0;
     padding: 0;
@@ -26,7 +29,10 @@ body {
     position: relative;
     overflow: hidden;
     padding-top: 70px;
+<<<<<<< HEAD
     z-index: 99999;
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 }
 
 .pw-footer::before {

@@ -7,9 +7,17 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+<<<<<<< HEAD
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.23",
         "laravel/tinker": "^2.10.1"
+=======
+        "kalnoy/nestedset": "^6.0",
+        "laravel/framework": "^12.0",
+        "laravel/socialite": "^5.23",
+        "laravel/tinker": "^2.10.1",
+        "livewire/livewire": "^3.6"
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

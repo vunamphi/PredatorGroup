@@ -1,11 +1,15 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\Auth\SocialiteController;
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 use App\Http\Controllers\AuthDangKy;
 use App\Http\Controllers\AuthDangNhap;
 
 
 use App\Http\Controllers\bannerController;
+<<<<<<< HEAD
 use App\Http\Controllers\ChiTietSanPhamCtr;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GioHangController;
@@ -14,11 +18,19 @@ use App\Http\Controllers\LienHeController;
 use App\Http\Controllers\LoginGG;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SanPhamController;
+=======
+
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginGG;
+use App\Http\Controllers\PostController;
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 use App\Http\Controllers\UserConTroller;
 use App\Http\Controllers\UsersController;
 use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Middleware\GoogleSessionExpire;
 
 
@@ -28,6 +40,21 @@ Route::controller(HomeController::class)->group(function () {
 });
 Route::get('/users', [UserConTroller::class, 'index'])->middleware('access.time');
 
+=======
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/users', [UserConTroller::class, 'index'])->middleware('access.time');
+
+
+
+Route::prefix('')->controller(HomeController::class)->group(function () {
+    Route::get('/', 'index');
+    Route::get('/about', 'about');
+});
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 Route::prefix('users')->controller(UsersController::class)->group(function () {
     Route::get('/', 'index')->name('users.index');
     Route::get('/create', 'create')->name('users.create'); // Tên đầy đủ là 'users.create'
@@ -44,6 +71,7 @@ Route::prefix('posts')->controller(PostController::class)
         route::put('/{id}', 'update')->name('update');
         Route::get('/{id}/delete', 'delete')->name('delete');
     });
+<<<<<<< HEAD
 
 
 Route::get('sanpham', [SanPhamController::class, 'sanpham'])->name('sanpham');
@@ -65,3 +93,11 @@ Route::middleware('google.guest')->prefix('auth/google')->name('auth.')->group(f
     Route::get('/', [SocialiteController::class, 'redirectGoogle'])->name('google');
     Route::get('/callback', [SocialiteController::class, 'callbackGoogle']);
 });
+=======
+Route::get('dangky', [AuthDangKy::class, 'dangky']);
+Route::post('dangky', [AuthDangKy::class, 'postdangky'])->name('postdangky');
+
+Route::get('dangnhap', [AuthDangKy::class, 'dangnhap'])->name('login');
+Route::post('dangnhap', [AuthDangKy::class, 'postdangnhap'])->name('postdangnhap');
+Route::get('dangxuat', [AuthDangKy::class, 'dangxuat'])->name('dangxuat');
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b

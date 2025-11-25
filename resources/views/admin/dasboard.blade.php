@@ -17,7 +17,11 @@
             <div class="logo-container">
                 <div class="logo">
                     <i class="fas fa-clock"></i>
+<<<<<<< HEAD
                     <span>PREDATOR</span>
+=======
+                    <span>TimeKeeper</span>
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
                 </div>
             </div>
 
@@ -42,6 +46,7 @@
                 <div class="sub-nav-container" style="display: none;">
                     <a href="#" class="nav-item sub-nav-item">
                         <i class="fas fa-tags"></i>
+<<<<<<< HEAD
                         <span> Danh mục</span>
                     </a>
                     <a href="#" class="nav-item sub-nav-item">
@@ -59,6 +64,17 @@
                     <a href="#" class="nav-item sub-nav-item">
                         <i class="fas fa-box-open"></i>
                         <span>Banner</span>
+=======
+                        <span>Quản lý danh mục</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span>Quản lí sản phẩm</span>
+                    </a>
+                    <a href="#" class="nav-item sub-nav-item">
+                        <i class="fas fa-box-open"></i>
+                        <span>Quản lí thương hiệu</span>
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
                     </a>
                 </div>
                 <div class="nav-item">
@@ -171,8 +187,13 @@
                         <div class="user-profile" id="profileToggle">
                             <div class="avatar">AD</div>
                             <div>
+<<<<<<< HEAD
                                 <div style="font-weight: 600; color: #ffffff;">{{ Auth::user()->name}}</div>
                                 <div style="font-size: 0.85rem; color: #9a9a9a;">{{ Auth::user()->role}} </div>
+=======
+                                <div style="font-weight: 600; color: #ffffff;">Admin Name</div>
+                                <div style="font-size: 0.85rem; color: #9a9a9a;">Admin Role</div>
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
                             </div>
                             <i class="fas fa-chevron-down"></i>
                         </div>
@@ -261,9 +282,15 @@
             <div class="table-container">
                 <div class="table-header">
                     <h3 class="chart-title">Đơn Hàng Gần Đây</h3>
+<<<<<<< HEAD
                     <!-- <button class="btn-primary">
                         <i class="fas fa-plus"></i> Thêm Đơn Hàng
                     </button> -->
+=======
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i> Thêm Đơn Hàng
+                    </button>
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
                 </div>
                 <table class="admin-table">
                     <thead>

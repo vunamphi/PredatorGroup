@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* Thêm vào đầu file resources/css/layout/lienhe.css */
 
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +15,11 @@ header.body {
     min-height: 100vh;
 }
 
+<<<<<<< HEAD
 header.header {
+=======
+.header {
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(15, 15, 15, 0.98) 100%);
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
@@ -420,6 +427,7 @@ header.header {
 .header-actions .nav-item {
     list-style: none;
     /* Đảm bảo loại bỏ dấu chấm list style */
+<<<<<<< HEAD
 }
 
 
@@ -464,4 +472,6 @@ header.header {
     visibility: visible;
     padding: 8px 15px;
     /* Khôi phục padding khi mở */
+=======
+>>>>>>> 0a0b0f5e852948a3bd0bc9ad9c3794c312c95a8b
 }
