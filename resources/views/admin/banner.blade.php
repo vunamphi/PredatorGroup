@@ -1,164 +1,186 @@
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý Banner - Đồng Hồ Cao Cấp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite(['resources/css/admin/banner.css', 'resources/js/admin/banner.js'])
+    <title>Quản Lý Banner</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css" rel="stylesheet">
 
+    @vite(['resources/css/admin/banner.css'])
 </head>
-<body class="min-h-screen p-4 md:p-6">
-    <div class="max-w-6xl mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-            <div>
-                <h1 class="text-2xl md:text-3xl font-bold text-white">Quản lý Banner</h1>
-                <p class="text-gray-400 mt-2">Quản lý các banner quảng cáo cho cửa hàng đồng hồ</p>
-            </div>
-            <button id="addBannerBtn" class="btn-primary px-5 py-2.5 rounded-lg flex items-center gap-2">
-                <i class="fas fa-plus"></i>
-                Thêm Banner Mới
-            </button>
-        </header>
-        
-        <div class="glass-card p-6 mb-8 fade-in">
-            <h2 class="text-xl font-semibold text-white mb-4">Thống kê Banner</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4">
-                    <div class="bg-gray-700 p-3 rounded-full">
-                        <i class="fas fa-image text-blue-400"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 text-sm">Tổng số banner</p>
-                        <p class="text-white text-2xl font-bold" id="totalBanners">0</p>
-                    </div>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4">
-                    <div class="bg-gray-700 p-3 rounded-full">
-                        <i class="fas fa-play-circle text-green-400"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 text-sm">Banner đang hoạt động</p>
-                        <p class="text-white text-2xl font-bold" id="activeBanners">0</p>
-                    </div>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4">
-                    <div class="bg-gray-700 p-3 rounded-full">
-                        <i class="fas fa-pause-circle text-yellow-400"></i>
-                    </div>
-                    <div>
-                        <p class="text-gray-400 text-sm">Banner tạm dừng</p>
-                        <p class="text-white text-2xl font-bold" id="inactiveBanners">0</p>
-                    </div>
-                </div>
-            </div>
+<body>
+@include('admin.nav')
+    <div class="banner-container">
+        <div class="page-header d-flex justify-content-between align-items-center">
+          
         </div>
-        
-        <div class="glass-card p-6 fade-in">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
-                <h2 class="text-xl font-semibold text-white">Danh sách Banner</h2>
-                <div class="flex gap-2">
-                    <select id="statusFilter" class="px-3 py-2 rounded-lg">
-                        <option value="all">Tất cả trạng thái</option>
-                        <option value="active">Đang hoạt động</option>
-                        <option value="inactive">Tạm dừng</option>
-                    </select>
-                    <div class="relative">
-                        <input type="text" id="searchBanner" placeholder="Tìm kiếm banner..." class="pl-10 pr-4 py-2 rounded-lg w-full md:w-64">
-                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+
+        @if(session('success'))
+            <div class="alert alert-success"><i class="fas fa-check-circle"></i> {{ session('success') }}</div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> {{ session('error') }}</div>
+        @endif
+
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card-box">
+                    <div class="card-header-custom">
+                        <h5><i class="fas fa-list-ul"></i> Danh sách Banner</h5>
+                    </div>
+                    <div class="card-body-custom p-0">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th width="5%">#</th>
+                                    <th width="20%">Hình ảnh</th>
+                                    <th>Thông tin chi tiết</th>
+                                    <th width="20%" class="text-center">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($banners as $key => $item)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>
+                                        <div class="thumb-box">
+                                            <img src="{{ asset('storage/'.$item->hinhanh) }}" class="thumb-img" alt="Banner">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="font-weight: 700; color: #32325d; font-size: 1rem;">{{ $item->title }}</div>
+                                        <div style="color: #8898aa; font-size: 0.9rem; margin-top: 4px;">
+                                            <i class="fas fa-tag"></i> {{ $item->thuonghieu }}
+                                        </div>
+                                        @if($item->link)
+                                            <div style="margin-top: 4px;">
+                                                <a href="{{ $item->link }}" target="_blank" style="color: var(--primary-color); font-size: 0.85rem; text-decoration: none;">
+                                                    <i class="fas fa-link"></i> {{ Str::limit($item->link, 30) }}
+                                                </a>
+                                            </div>
+                                        @endif
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ route('admin.banner.edit', $item->id) }}" class="btn-action btn-edit mb-2">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                        <form action="{{ route('admin.banner.destroy', $item->id) }}" method="POST" style="display:inline;">
+                                            @csrf @method('DELETE')
+                                            <button type="submit" class="btn-action btn-delete" onclick="return confirm('Xóa banner này?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        
+                        @if($banners->isEmpty())
+                            <div style="padding: 20px; text-align: center; color: #8898aa;">
+                                Chưa có banner nào. Hãy thêm mới bên phải.
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
-            
-            <div id="bannersList" class="space-y-4">
-                <!-- Banner items will be dynamically added here -->
-                <div class="empty-state">
-                    <i class="fas fa-images"></i>
-                    <h3 class="text-xl mb-2">Chưa có banner nào</h3>
-                    <p class="text-gray-500">Hãy thêm banner đầu tiên để bắt đầu</p>
+
+            <div class="col-lg-4">
+                <div class="card-box">
+                    <div class="card-header-custom {{ isset($bannerEdit) ? 'edit-mode' : '' }}">
+                        <h5>
+                            <i class="fas {{ isset($bannerEdit) ? 'fa-edit' : 'fa-plus-circle' }}"></i>
+                            {{ isset($bannerEdit) ? 'Cập Nhật Banner' : 'Thêm Mới' }}
+                        </h5>
+                    </div>
+                    <div class="card-body-custom">
+                        <form action="{{ isset($bannerEdit) ? route('admin.banner.update', $bannerEdit->id) : route('admin.banner.store') }}" 
+                              method="POST" enctype="multipart/form-data">
+                            @csrf
+                            
+                            <div class="form-group">
+                                <label class="form-label">Tiêu đề Banner <span style="color:red">*</span></label>
+                                <input type="text" name="title" class="form-input" required
+                                       value="{{ isset($bannerEdit) ? $bannerEdit->title : old('title') }}" 
+                                       placeholder="VD: Khuyến mãi mùa hè...">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Thương hiệu</label>
+                                <input type="text" name="thuonghieu" class="form-input" 
+                                       value="{{ isset($bannerEdit) ? $bannerEdit->thuonghieu : old('thuonghieu') }}" 
+                                       placeholder="VD: Nike, Adidas...">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Link liên kết (khi click vào ảnh)</label>
+                                <input type="text" name="link" class="form-input" 
+                                       value="{{ isset($bannerEdit) ? $bannerEdit->link : old('link') }}" 
+                                       placeholder="https://...">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Mô tả ngắn</label>
+                                <textarea name="mota" class="form-input" rows="3">{{ isset($bannerEdit) ? $bannerEdit->mota : old('mota') }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Hình ảnh <span style="color:red">*</span></label>
+                                <input type="file" name="hinhanh" class="form-input" onchange="previewFile(this)">
+                                
+                                <div class="preview-area">
+                                    <img id="preview" src="#" style="display: none; max-width: 100%; max-height: 150px; border-radius: 5px; margin: 0 auto;">
+                                    
+                                    @if(isset($bannerEdit) && $bannerEdit->hinhanh)
+                                        <div id="old-img">
+                                            <p style="font-size: 12px; color: #888; margin-bottom: 5px;">Ảnh hiện tại:</p>
+                                            <img src="{{ asset('storage/'.$bannerEdit->hinhanh) }}" style="max-width: 100%; max-height: 150px; border-radius: 5px;">
+                                        </div>
+                                    @else
+                                        <p style="font-size: 13px; color: #aaa; margin:0;" id="placeholder-text">Chưa chọn ảnh</p>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn-action btn-save">
+                                {{ isset($bannerEdit) ? 'Lưu Thay Đổi' : 'Thêm Mới' }}
+                            </button>
+
+                            @if(isset($bannerEdit))
+                                <a href="{{ route('admin.banner.index') }}" class="btn-action btn-back">Hủy bỏ</a>
+                            @endif
+
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Modal Thêm/Sửa Banner -->
-    <div id="bannerModal" class="modal-overlay hidden">
-        <div class="modal-content glass-card p-6">
-            <div class="flex justify-between items-center mb-6">
-                <h2 id="modalTitle" class="text-xl font-semibold text-white">Thêm Banner Mới</h2>
-                <button id="closeModal" class="text-gray-400 hover:text-white">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            
-            <form id="bannerForm">
-                <input type="hidden" id="bannerId">
-                
-                <div class="form-group">
-                    <label for="bannerTitle" class="form-label">Tiêu đề banner</label>
-                    <input type="text" id="bannerTitle" class="w-full" placeholder="Nhập tiêu đề banner" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="bannerDescription" class="form-label">Mô tả</label>
-                    <textarea id="bannerDescription" rows="3" class="w-full" placeholder="Nhập mô tả cho banner"></textarea>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div class="form-group">
-                        <label for="bannerImage" class="form-label">URL hình ảnh</label>
-                        <input type="text" id="bannerImage" class="w-full" placeholder="https://example.com/image.jpg" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bannerLink" class="form-label">Liên kết đích</label>
-                        <input type="text" id="bannerLink" class="w-full" placeholder="https://example.com">
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div class="form-group">
-                        <label for="bannerStartDate" class="form-label">Ngày bắt đầu</label>
-                        <input type="date" id="bannerStartDate" class="w-full" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bannerEndDate" class="form-label">Ngày kết thúc</label>
-                        <input type="date" id="bannerEndDate" class="w-full" required>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                    <div class="form-group">
-                        <label for="bannerPosition" class="form-label">Vị trí hiển thị</label>
-                        <select id="bannerPosition" class="w-full">
-                            <option value="top">Đầu trang</option>
-                            <option value="middle">Giữa trang</option>
-                            <option value="bottom">Cuối trang</option>
-                            <option value="sidebar">Thanh bên</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="bannerStatus" class="form-label">Trạng thái</label>
-                        <select id="bannerStatus" class="w-full">
-                            <option value="active">Đang hoạt động</option>
-                            <option value="inactive">Tạm dừng</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="flex justify-end gap-3">
-                    <button type="button" id="cancelBtn" class="px-4 py-2 rounded-lg border border-gray-600 text-gray-300 hover:bg-gray-700 transition">
-                        Hủy bỏ
-                    </button>
-                    <button type="submit" class="btn-success px-5 py-2 rounded-lg flex items-center gap-2">
-                        <i class="fas fa-save"></i>
-                        Lưu Banner
-                    </button>
-                </div>
-            </form>
         </div>
     </div>
-    
+
+    <script>
+        function previewFile(input) {
+            var file = input.files[0];
+            if(file){
+                var reader = new FileReader();
+                reader.onload = function(){
+                    var preview = document.getElementById('preview');
+                    var oldImg = document.getElementById('old-img');
+                    var placeholder = document.getElementById('placeholder-text');
+
+                    preview.src = reader.result;
+                    preview.style.display = 'block';
+                    
+                    if(oldImg) oldImg.style.display = 'none';
+                    if(placeholder) placeholder.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
 </body>
+</html>

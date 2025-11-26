@@ -1,5 +1,3 @@
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +48,7 @@
                                 <a href="#" class="mega-menu-item">trên 15 triệu</a>
                                 <a href="#" class="mega-menu-item">trên 50 triệu</a>
                             </div>
-                        
+
                         </div>
                     </div>
                 </li>
@@ -66,7 +64,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         Nữ
-                        
+
                     </a>
 
                 </li>
@@ -96,9 +94,10 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
-            <button class="action-btn">
+            
+            <a class="action-btn" href="{{ route('giohang') }}">
                 <i class="fa-solid fa-cart-shopping"></i>
-            </button>
+            </a>
 
             <button class="action-btn">
                 <i class="fa-solid fa-heart"></i>

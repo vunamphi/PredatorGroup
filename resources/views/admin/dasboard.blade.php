@@ -30,7 +30,7 @@
                     <i class="fas fa-shopping-bag"></i>
                     <span onclick="toggleBanner()">Giỏ hàng </span>
                     <div id="banner-content" style="display: none;">
-                        @include('admin.banner');
+                       
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
                         <i class="fas fa-box-open"></i>
                         <span> Người dùng</span>
                     </a>
-                    <a href="#" class="nav-item sub-nav-item">
+                    <a href="{{ route('admin.admin.banner') }}" class="nav-item sub-nav-item">
                         <i class="fas fa-box-open"></i>
                         <span>Banner</span>
                     </a>

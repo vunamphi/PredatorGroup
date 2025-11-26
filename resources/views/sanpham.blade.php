@@ -231,7 +231,42 @@
                             </div>
                         </div>
                     </a>
-
+<a href="/chi-tiet-san-pham" class="wt-product-card">
+                        <div class="wt-product-image-wrapper">
+                            <img src="https://placehold.co/300x300" alt="Audemars Piguet Royal Oak" class="wt-product-image">
+                        </div>
+                        <div class="wt-product-info">
+                            <div class="wt-product-brand">AUDEMARS PIGUET</div>
+                            <h3 class="wt-product-name">Royal Oak Selfwinding</h3>
+                            <div class="wt-product-specs">
+                                <span class="wt-product-spec">⚙️ Automatic</span>
+                                <span class="wt-product-spec">📏 41mm</span>
+                                <span class="wt-product-spec">💎 Vàng Hồng</span>
+                            </div>
+                            <div class="wt-product-price-section">
+                                <span class="wt-product-price">1.200.000.000 VNĐ</span>
+                                <button class="wt-add-cart-button">Thêm</button>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/chi-tiet-san-pham" class="wt-product-card">
+                        <div class="wt-product-image-wrapper">
+                            <img src="https://placehold.co/300x300" alt="Audemars Piguet Royal Oak" class="wt-product-image">
+                        </div>
+                        <div class="wt-product-info">
+                            <div class="wt-product-brand">AUDEMARS PIGUET</div>
+                            <h3 class="wt-product-name">Royal Oak Selfwinding</h3>
+                            <div class="wt-product-specs">
+                                <span class="wt-product-spec">⚙️ Automatic</span>
+                                <span class="wt-product-spec">📏 41mm</span>
+                                <span class="wt-product-spec">💎 Vàng Hồng</span>
+                            </div>
+                            <div class="wt-product-price-section">
+                                <span class="wt-product-price">1.200.000.000 VNĐ</span>
+                                <button class="wt-add-cart-button">Thêm</button>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 
                 {{-- PHÂN TRANG --}}
