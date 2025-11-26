@@ -71,10 +71,12 @@ Route::prefix('admin')->middleware(['auth', 'PhanQuyenAdmin'])->group(function (
 Route::prefix('admin')->middleware(['auth', 'PhanQuyenAdmin'])->group(function () {
     Route::get('/banner', [bannerController::class, 'index'])->name('admin.banner.index');
     Route::post('/banner/store', [bannerController::class, 'store'])->name('admin.banner.store');
+    
+    // Route edit để load lại trang index với dữ liệu
+    Route::get('/banner/edit/{id}', [bannerController::class, 'edit'])->name('admin.banner.edit');
+    
+    // Route update thực hiện lưu
+    Route::post('/banner/update/{id}', [bannerController::class, 'update'])->name('admin.banner.update');
+    
     Route::delete('/banner/{id}', [bannerController::class, 'destroy'])->name('admin.banner.destroy');
 });
-
-// --- XÓA ĐOẠN DƯỚI ĐÂY ---
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::resource('banner', BannerController::class); 
-// });
